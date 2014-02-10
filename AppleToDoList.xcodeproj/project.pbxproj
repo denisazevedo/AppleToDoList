@@ -19,6 +19,7 @@
 		6A497CEB18A9576300D3CD68 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A497CD318A9576300D3CD68 /* UIKit.framework */; };
 		6A497CF318A9576300D3CD68 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6A497CF118A9576300D3CD68 /* InfoPlist.strings */; };
 		6A497CF518A9576300D3CD68 /* AppleToDoListTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A497CF418A9576300D3CD68 /* AppleToDoListTests.m */; };
+		6A497CFF18A9606100D3CD68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A497CFE18A9606100D3CD68 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		6A497CF018A9576300D3CD68 /* AppleToDoListTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "AppleToDoListTests-Info.plist"; sourceTree = "<group>"; };
 		6A497CF218A9576300D3CD68 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6A497CF418A9576300D3CD68 /* AppleToDoListTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppleToDoListTests.m; sourceTree = "<group>"; };
+		6A497CFE18A9606100D3CD68 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				6A497CDE18A9576300D3CD68 /* XYZAppDelegate.h */,
 				6A497CDF18A9576300D3CD68 /* XYZAppDelegate.m */,
+				6A497CFE18A9606100D3CD68 /* Main.storyboard */,
 				6A497CE118A9576300D3CD68 /* Images.xcassets */,
 				6A497CD618A9576300D3CD68 /* Supporting Files */,
 			);
@@ -220,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A497CFF18A9606100D3CD68 /* Main.storyboard in Resources */,
 				6A497CDA18A9576300D3CD68 /* InfoPlist.strings in Resources */,
 				6A497CE218A9576300D3CD68 /* Images.xcassets in Resources */,
 			);
