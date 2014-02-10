@@ -16,14 +16,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New to-do item" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0q1-AH-YbO">
-                                <rect key="frame" x="20" y="122" width="280" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New to-do item" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0q1-AH-YbO">
+                                <rect key="frame" x="20" y="120" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="0q1-AH-YbO" secondAttribute="trailing" constant="20" symbolic="YES" id="EVq-my-GQs"/>
+                            <constraint firstItem="0q1-AH-YbO" firstAttribute="top" secondItem="qCP-aL-xri" secondAttribute="bottom" constant="100" id="UH0-4r-Fxw"/>
+                            <constraint firstItem="0q1-AH-YbO" firstAttribute="leading" secondItem="htm-2e-g2o" secondAttribute="leading" constant="20" symbolic="YES" id="Vsv-Rt-8eg"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aWv-vJ-l8d" userLabel="First Responder" sceneMemberID="firstResponder"/>
