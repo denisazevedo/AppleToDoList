@@ -7,12 +7,31 @@
 //
 
 #import "XYZToDoListViewController.h"
+#import "XYZToDoItem.h"
 
 @interface XYZToDoListViewController ()
+
+@property NSMutableArray *toDoItems;
 
 @end
 
 @implementation XYZToDoListViewController
+
+- (void)loadInitialData {
+    
+    XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
+    item1.itemName = @"Buy milk";
+    [self.toDoItems addObject:item1];
+
+    XYZToDoItem *item2 = [[XYZToDoItem alloc] init];
+    item2.itemName = @"Buy eggs";
+    [self.toDoItems addObject:item2];
+
+    XYZToDoItem *item3 = [[XYZToDoItem alloc] init];
+    item3.itemName = @"Buy beer";
+    [self.toDoItems addObject:item3];
+
+}
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)segue {
     
@@ -30,7 +49,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
+    self.toDoItems = [[NSMutableArray alloc] init];
+    [self loadInitialData];
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
@@ -46,19 +67,16 @@
 
 #pragma mark - Table view data source
 
-/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    return [self.toDoItems count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -70,7 +88,6 @@
     
     return cell;
 }
-*/
 
 /*
 // Override to support conditional editing of the table view.
