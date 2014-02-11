@@ -118,8 +118,6 @@
 		6A497CD518A9576300D3CD68 /* AppleToDoList */ = {
 			isa = PBXGroup;
 			children = (
-				6A497CDE18A9576300D3CD68 /* XYZAppDelegate.h */,
-				6A497CDF18A9576300D3CD68 /* XYZAppDelegate.m */,
 				6A497CFE18A9606100D3CD68 /* Main.storyboard */,
 				6A497D0618A9B25F00D3CD68 /* XYZToDoItem.h */,
 				6A497D0718A9B25F00D3CD68 /* XYZToDoItem.m */,
@@ -136,6 +134,8 @@
 		6A497CD618A9576300D3CD68 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6A497CDE18A9576300D3CD68 /* XYZAppDelegate.h */,
+				6A497CDF18A9576300D3CD68 /* XYZAppDelegate.m */,
 				6A497CD718A9576300D3CD68 /* AppleToDoList-Info.plist */,
 				6A497CD818A9576300D3CD68 /* InfoPlist.strings */,
 				6A497CDB18A9576300D3CD68 /* main.m */,
