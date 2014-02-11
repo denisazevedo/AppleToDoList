@@ -10,10 +10,9 @@
 #import "XYZAddToDoItemViewController.h"
 #import "XYZToDoItem.h"
 
-@interface XYZToDoListViewController ()
-
+@interface XYZToDoListViewController () <UIActionSheetDelegate>
 @property NSMutableArray *toDoItems;
-
+@property NSIndexPath *currentIndexPath;
 @end
 
 @implementation XYZToDoListViewController
@@ -59,17 +58,13 @@
     self.toDoItems = [[NSMutableArray alloc] init];
     [self loadInitialData];
     
+    //self.tableView.allowsMultipleSelectionDuringEditing = YES;
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark - Table view data source
@@ -154,16 +149,56 @@
 
  */
 
+- (void)deleteItem:(NSIndexPath *)indexPath {
+    UIActionSheet *confirm = [[UIActionSheet alloc] initWithTitle:nil
+                                                         delegate:self
+                                                cancelButtonTitle:@"Cancel"
+                                           destructiveButtonTitle:@"Delete Item"
+                                                otherButtonTitles:nil];
+    self.currentIndexPath = indexPath;
+    [confirm showInView:self.view];
+}
+
 #pragma mark - Table view delegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    [tableView deselectRowAtIndexPath:indexPath animated:NO]; //deselect the cell
+    if (!tableView.isEditing) {
+        [tableView deselectRowAtIndexPath:indexPath animated:NO]; //deselect the cell
+        
+        XYZToDoItem *tappedItem = [self.toDoItems objectAtIndex:indexPath.row];
+        tappedItem.completed = !tappedItem.completed;
+        
+        [tableView reloadRowsAtIndexPaths:@[indexPath]
+                         withRowAnimation:UITableViewRowAnimationNone]; //reload current cell
+    }
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    XYZToDoItem *tappedItem = [self.toDoItems objectAtIndex:indexPath.row];
-    tappedItem.completed = !tappedItem.completed;
-    
-    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone]; //reload current cell
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        [self deleteItem:indexPath];
+    }
+}
+
+#pragma mark - Action sheet delegate
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+
+    if (buttonIndex == 0) { //Delete
+        
+        [self.toDoItems removeObjectAtIndex:self.currentIndexPath.row];
+        [self.tableView deleteRowsAtIndexPaths:@[self.currentIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        //For multiple selections
+        /*NSArray *selectedItems = [self.tableView indexPathsForSelectedRows];
+        NSMutableIndexSet *indexesToDelete = [NSMutableIndexSet new];
+        for (NSIndexPath *index in selectedItems) {
+            [indexesToDelete addIndex:index.row];
+        }
+        [self.toDoItems removeObjectsAtIndexes:indexesToDelete];
+        [self.tableView deleteRowsAtIndexPaths:selectedItems withRowAnimation:UITableViewRowAnimationFade];*/
+    }
 }
 
 @end
