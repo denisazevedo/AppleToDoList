@@ -24,11 +24,11 @@
     [self.toDoItems addObject:item1];
 
     XYZToDoItem *item2 = [[XYZToDoItem alloc] init];
-    item2.itemName = @"Buy eggs";
+    item2.itemName = @"Call John";
     [self.toDoItems addObject:item2];
 
     XYZToDoItem *item3 = [[XYZToDoItem alloc] init];
-    item3.itemName = @"Buy beer";
+    item3.itemName = @"Go surf";
     [self.toDoItems addObject:item3];
 
 }
